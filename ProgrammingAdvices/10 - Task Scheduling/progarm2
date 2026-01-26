@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _10___Task_Scheduling
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Queue<StringBuilder> Tasks = new Queue<StringBuilder>();
+            Tasks.Enqueue(new StringBuilder("Task1"));
+            Tasks.Enqueue(new StringBuilder("Task2"));
+            Tasks.Enqueue(new StringBuilder("Task3"));
+            Tasks.Enqueue(new StringBuilder("Task4"));
+            Console.WriteLine("Executing tasks:");
+
+            while (Tasks.Count > 0)
+            {
+                StringBuilder currentTask = Tasks.Dequeue();
+                Console.WriteLine($"Processing: {currentTask}");
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
