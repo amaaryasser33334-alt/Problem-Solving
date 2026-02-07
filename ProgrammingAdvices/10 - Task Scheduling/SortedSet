@@ -1,0 +1,90 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+
+        //SortedSet<int> sortedset = new SortedSet<int> {1,2,3,4,5,6};
+
+        //var nums=sortedset.GetViewBetween(2, 4);
+
+        //Console.WriteLine(string.Join(",",nums));
+
+
+
+        //SortedSet<int> num = new SortedSet<int> { 4, 2, 5, 1, 3 };
+        //Console.WriteLine($"min nums : {num.Min} ,max num:{num.Max}");
+
+        //SortedSet<int> set1 = new SortedSet<int> {1,2,3};
+        //SortedSet<int> Set2=new SortedSet<int>{3,4,5,6};
+
+        //set1.UnionWith(Set2);
+        //Console.WriteLine(string.Join(",",set1));
+
+        //SortedSet<int> set1 = new SortedSet<int> { 1, 2, 3, 4, 5 };
+        //var value = 4;
+        //Console.WriteLine(string.Join(",", ElementsLessThan(set1, value)));
+
+        //SortedSet<int> set = new SortedSet<int> { 1, 2, 3, 4, 5 };
+        //int value = 3;
+        //Console.WriteLine(CountGreaterThan(set, value)); // Output: 2
+
+        //SortedSet<int> set = new SortedSet<int> { 1, 2, 3, 4, 5 };
+        //var result = ElementsNotInRange(set, 2, 4);
+        //Console.WriteLine(string.Join(", ", result)); // Output: 1, 5
+
+
+        //SortedSet<int> set = new SortedSet<int> { 1, 2, 3, 4, 5 };
+        //var ranges = new List<(int, int)> { (1, 2), (4, 5) };
+        //Console.WriteLine(ContainsAllRanges(set, ranges)); // Output: True
+
+        SortedList<string, int> leaderboard = new SortedList<string, int>
+        {
+            { "Alice", 1200 },
+            { "Charlie", 1500 },
+            { "Bob", 1300 }
+        };
+
+        foreach (var player in leaderboard)
+        {
+            Console.WriteLine($"Player: {player.Key}, Score: {player.Value}");
+        }
+
+        Console.ReadKey();
+  }
+
+    //static bool ContainsAllRanges(SortedSet<int> set, List<(int, int)> ranges)
+    //{
+    //    foreach (var (low, high) in ranges)
+    //    {
+    //        var range = set.GetViewBetween(low, high);
+    //        if (range.Count != (high - low + 1))
+    //            return false;
+    //    }
+    //    return true;
+    //}
+
+
+
+    //static IEnumerable<int> ElementsLessThan(SortedSet<int> set, int value)
+    //{
+    //    return set.GetViewBetween(int.MinValue, value - 1);
+    //}
+
+    //static int CountGreaterThan(SortedSet<int> set,int value)
+    //{
+    //    return set.GetViewBetween(value+1,set.Max).Count;
+    //}
+    //static IEnumerable<int> ElementsNotInRange(SortedSet<int> set, int low, int high)
+    //{
+    //    var rang=set.GetViewBetween(low, high);
+    //    SortedSet<int> result=new SortedSet<int>(set);
+    //    result.ExceptWith(rang);
+
+    //    return result;
+    //}
+
+}
