@@ -1,0 +1,90 @@
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    static void Main(string[] args)
+    {
+        //int[][] jaggedarr = new int[3][];
+
+        //int[][] jaggedarr =new int[][]{
+        //new int[]{ 90, 85, 88 },
+        //new int[]{ 76, 80 },
+        //new int[]{ 92, 93, 89, 85 }
+        //};
+
+        //for (int i = 0; i < jaggedarr.Length; i++)
+        //{
+        //    for (int j = 0; j < jaggedarr[i].Length; j++)
+        //    {
+        //        Console.Write(string.Join(",",jaggedarr[i][j]));
+        //    }
+        //    Console.WriteLine();
+        //}
+
+        // int[][] studentMarks = new int[][]
+        //{
+        //     new int[] { 90, 85, 88 }, // Student 1
+        //     new int[] { 76, 80 },     // Student 2
+        //     new int[] { 92, 93, 89, 85 } // Student 3
+        //};
+
+
+        // for (int i = 0; i < studentMarks.Length; i++)
+        // {
+        //     Console.Write($"Student {i + 1}: ");
+        //     Console.WriteLine(string.Join(", ", studentMarks[i]));
+
+        // }
+
+        //int[][] jagged = new int[3][];
+
+        //jagged[0] = new int[] { 1, 2, 3, 4 };
+        //jagged[1] = new int[] { 5,6,7,8 };
+        //jagged[2] = new int[] { 32,22,41};
+
+        //for (int i = 0; i < jagged.Length; i++) 
+        //{
+        //    foreach (int j in jagged[i]) 
+        //    {
+        //    Console.Write(j+" ");
+        //    }
+        //    Console.WriteLine();
+        //}
+
+        //bool[][] flightSeats = new bool[2][];
+        //flightSeats[0] = new bool[] { true, false, true }; // Flight 1
+        //flightSeats[1] = new bool[] { false, false, true, true }; // Flight 2
+
+
+        //Console.WriteLine("Seat Availability:");
+        //for (int i = 0; i < flightSeats.Length; i++)
+        //{
+        //    Console.Write($"Flight {i + 1}: ");
+        //    foreach (bool seat in flightSeats[i])
+        //    {
+        //        Console.Write(seat ? "Available " : "Occupied ");
+        //    }
+        //    Console.WriteLine();
+        //}
+
+        // Declare and initialize a jagged array
+        int[][] jaggedArray = {
+            new int[] { 1, 2, 3 },
+            new int[] { 4, 5, 6 },
+            new int[] { 7, 8, 9, 10 }
+        };
+
+        int totalsum=jaggedArray.SelectMany(subarray=>subarray).Sum();
+        Console.WriteLine("Total Sum"+totalsum);
+
+        var firstElements = jaggedArray.Where(subArray => subArray.Length > 3)
+                                        .Select(subArray => subArray.First());
+        Console.Write("First Elements of Long Rows: ");
+        foreach (var element in firstElements)
+        {
+            Console.Write(element + " ");
+        }
+        Console.ReadKey();
+    }
+}
