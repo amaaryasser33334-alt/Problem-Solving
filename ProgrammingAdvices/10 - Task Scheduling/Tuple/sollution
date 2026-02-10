@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Tuplewithlist
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //List<(int id,string name ,int age)> people=new List<(int,string,int)>
+            //{
+            //    (1,"ramadan",189),
+            //     (2, "Bob", 25),
+            //(3, "Charlie", 35),
+            //(4, "Diana", 28)
+            //};
+
+            //var filterdpeople = people.Where(p => p.age > 30);
+
+            //foreach (var person in filterdpeople) 
+            //{
+            //    Console.WriteLine($"Name: {person.name}, Age: {person.age}");
+            //}
+
+
+
+            //(int, string, int) person = (1, "Romeo", 60);  
+            //Console.WriteLine(person.Item1+","+person.Item2+","+person.Item3);
+
+
+
+            //var student = GetStudentDetails();
+            //Console.WriteLine($"Name: {student.Name}, Age: {student.Age}, Grade: {student.Grade}");
+            //// Output: Name: Alice, Age: 20, Grade: 85.5
+            //Console.ReadKey();
+
+            //var player1 = (Name: "player1", Health: 100, Score: 20000);
+            //Console.WriteLine($"Name:{player1.Name},Health:{player1.Health},Score:{player1.Score}");
+
+            //var employee1 = (Name: "Alice", Salary: 50000);
+            //var employee2 = (Name: "Bob", Salary: 60000);
+            //Console.WriteLine($"{employee1.Name} has {(employee1.Salary>employee1.Salary?"Higher":"Lower")}salary than {employee2.Name}");
+
+            //var student = CheckStudentStatus(40);
+            //Console.WriteLine($"Success :{student.Output},value:{student.value}");
+
+            List<(string street, string city, string state, string ziq)> home = new List<(string, string, string, string)>
+            {
+                ("123 Main St","Springfield","IL","62704")
+            };
+            foreach (var item in home) 
+            {
+            Console.WriteLine(item.street+","+item.city + "," +item.street + "," +item.ziq);
+            }
+        }
+
+        //static (bool Output,int value) CheckStudentStatus(int input) 
+        //{
+        //   bool succes=input>50?true:false;
+        //    return(succes,input);
+
+        //}
+
+        //static (string Name,int Age,int Grade) GetStudentDetails()
+        //{
+        //    return ("ramadan", 2, 1);
+        //}
+    }
+}
