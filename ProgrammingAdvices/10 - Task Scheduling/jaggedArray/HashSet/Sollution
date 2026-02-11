@@ -1,0 +1,185 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+
+public class Program
+{
+    static void Main(string[] args)
+    {
+        //Hashtable ht1 = new Hashtable { { "Key1", "ramadan" }, { "Key2", 4 } };
+        //Hashtable ht2 = new Hashtable(ht1);
+
+        //foreach (DictionaryEntry entry in ht2)
+        //{
+        //    Console.WriteLine(entry.Key + "," + entry.Value);
+        //}
+
+
+        //List<int> list = new List<int> {1,1,3,2,66,4,6,9};
+
+        //SortedSet<int> set = new SortedSet<int>(list);
+
+        //foreach (int i in set) 
+        //{
+        //Console.Write(string.Join(",",i));
+        //}
+
+
+        //SortedSet<int> sort= new SortedSet<int> {0,3,2,4,3,5,6,};
+
+        //for (int i = 0; i < sort.Count; i++) 
+        //{
+        //if(!sort.Contains(i))
+        //    {
+        //        Console.WriteLine($"Missing number: {i}");
+        //    }
+        //}
+
+
+        //SortedSet<DateTime> dates = new SortedSet<DateTime>();
+        //dates.Add(new DateTime(2024, 11, 19, 10, 0,0));
+        //dates.Add(new DateTime(2024, 11, 19, 10, 15, 0));
+        //dates.Add(new DateTime(2024, 11, 19, 10, 10, 0));
+        //foreach (DateTime dt in dates)
+        //{
+        //    Console.WriteLine(dt);
+        //}
+
+        //SortedSet<DateTime> eventTimeline = new SortedSet<DateTime>
+        //{
+        //    new DateTime(2033,3,20),
+        //    new DateTime(2022,1,12),
+        //    new DateTime(2012,3,11)
+
+        //};
+        //foreach (var eventTime in eventTimeline)
+        //{
+        //    Console.WriteLine(eventTime.ToShortDateString());
+        //}
+        //Console.WriteLine("Press any key to exit...");
+        //Console.ReadKey();
+
+
+        //SortedSet<DateTime> showtimes = new SortedSet<DateTime>
+        //{
+        //    new DateTime(2024, 11, 19, 14, 0, 0),
+        //    new DateTime(2024, 11, 19, 12, 30, 0),
+        //    new DateTime(2024, 11, 19, 16, 15, 0)
+        //};
+        //Console.WriteLine("Next showtime: " +showtimes.Min);
+        //foreach(var time in showtimes)
+        //{
+        //  Console.WriteLine(time.ToShortDateString());
+        //}
+
+
+        //SortedSet<TimeSpan> set = new SortedSet<TimeSpan>{
+        //new TimeSpan(14,30,0),
+        //new TimeSpan(15,0,0),
+        //new TimeSpan(7,0,11),
+        //};
+        //foreach (var item in set)
+        //{
+        //    Console.WriteLine(item);
+        //}
+
+        //SortedSet<string> shoppingCart=new SortedSet<string> {
+        //  "Apple",
+        //    "Orange",
+        //    "Banana",
+        //    "Apple" // Duplicate, won't be added
+        //};
+
+        //Console.WriteLine("Shopping cart items (sorted):");
+        //foreach (var item in shoppingCart)
+        //{
+        //    Console.WriteLine(item);
+        //}
+
+
+        //SortedSet<DateTime> flightTimes = new SortedSet<DateTime>
+        //{
+        //    new DateTime(2024, 11, 19, 8, 0, 0),
+        //    new DateTime(2024, 11, 19, 12, 45, 0),
+        //    new DateTime(2024, 11, 19, 8, 0, 0) // Duplicate, won't be added
+        //};
+
+        //Console.WriteLine("Flight times (sorted):");
+        //foreach (var time in flightTimes)
+        //{
+        //    Console.WriteLine(time.ToShortTimeString());
+        //}
+
+        //SortedSet<string> tags = new SortedSet<string>
+        //{
+        //    "C#", "Programming", "Tutorial", "DotNet"
+        //};
+
+        // Add more tags
+        //tags.Add("Coding");
+        //tags.Add("Programming"); // Duplicate, won't be added
+        //Console.WriteLine("All Tags:");
+        //foreach (var tag in tags)
+        //{
+        //    Console.WriteLine(tag);
+        //}
+
+
+        //SortedSet<string> words = new SortedSet<string>
+        //{
+        //    "apple", "application", "appreciate", "banana", "band", "bandwidth", "cat", "cater"
+        //};
+        //Console.Write("Enter a prefix: ");
+        //string prefix = Console.ReadLine();
+        //var suggestions = GetSuggestions(words, prefix);
+        //Console.WriteLine("Suggestions:");
+        //foreach (var word in suggestions)
+        //{
+        //    Console.WriteLine(word);
+        //}
+
+        SortedSet<Task> tasks = new SortedSet<Task>{new Task { Priority = 2, Description = "Write report" },
+            new Task { Priority = 1, Description = "Fix critical bug" },
+            new Task { Priority = 3, Description = "Team meeting" } };
+
+        // Add a new task with same priority
+        tasks.Add(new Task { Priority = 2, Description = "Review PRs" });
+
+        Console.WriteLine("Tasks in priority order:\n");
+        foreach (var task in tasks)
+        {
+            Console.WriteLine($"Priority: {task.Priority}, Task: {task.Description}");
+        }
+
+
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadKey();
+    }
+    //static IEnumerable<string> GetSuggestions(SortedSet<string> words, string prefix)
+    //{
+    //    foreach (var word in words)
+    //    {
+    //        if(word.StartsWith(prefix,StringComparison.OrdinalIgnoreCase))
+    //            yield return word;
+    //    }
+    //}
+
+    
+}
+
+class Task : IComparable<Task>
+{
+    public int Priority {get; set;}
+    public string Description { get; set;}
+    public int CompareTo(Task other)
+    {
+
+        int result=this.Priority.CompareTo(other.Priority);
+        if (result==0)
+        {
+            result = this.Description.CompareTo(other.Description);
+        }
+        return result;
+    }
+}
